@@ -17,7 +17,7 @@ server='laterite'
 
 #surveycto username and password
 username='bgetachew@laterite.com'
-pw=os.getenv("PASSWORD")
+password=os.getenv("PASSWORD")
 
 ok=requests.get(f'https://{server}.surveycto.com/api/v2/forms/data/wide/json/{formid}?date=0', auth=(username, password))
 
