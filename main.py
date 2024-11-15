@@ -44,15 +44,7 @@ data_csv=data
 print(data.shape)
 ### Keeping only the most uptodate data to monitor
 data=data[data['SubmissionDate']>ctr_val]
-print(data.shape)
-
-if data.shape[0]>0:
-    max=data['SubmissionDate'].max()
-    ctr.update_cell(1, 1, max) 
-
-
-
-
+# print(data.shape)
 
 def data_quality_checks(data):
     ### check 1 Dwellin versus number of people living in the household
@@ -112,3 +104,9 @@ def data_quality_checks(data):
         data5['comment']="CR is typically paid "+ data5['pw10a_1'] + " working for "+ data5['pw_9a_1']+" hours. Confirm!"
         data5=data5[(data5['pay_per_week_nowa']<Q1) & data5['pay_per_week_nowa']>Q3]
         dq.append_rows(data5[var_list+['var', 'comment']].values.tolist())
+
+
+if data.shape[0]>0:
+    max=data['SubmissionDate'].max()
+    ctr.update_cell(1, 1, max)
+    data_quality_checks(data)
