@@ -70,7 +70,6 @@ def data_quality_checks(data):
     dq.append_rows(rooms.values.tolist())
 
 
-
     #### Check 2 Toilet shared with more than 10 people
     data3=data
     data3=data3[data3['dw_toiletshare']==3]
